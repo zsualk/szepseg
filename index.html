@@ -21,6 +21,20 @@
     <![endif]-->
 <!-- Jquery - The rest of the scripts at the bottom-->
 <script src="js/jquery-1.9.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.getJSON("http://api.subtitlesforyoutube.com/v2/hu-HU/project/list-girls", function(data){
+            $.each(data, function(index) {
+            alert(data[index].name);
+            alert(data[index].bust);
+        });
+        });
+    });
+});
+</script>
+
 </head>
 <body>
 
@@ -40,7 +54,7 @@
 <div class="introtitle">
 	<div class="container">
 	  <h1>Valaszd ki a lanyt akire szavazni akarsz</h1>
-	  
+	  <button>test</button>
 	</div>
 </div>
 <!-- END Intro -->
