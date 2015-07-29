@@ -1,12 +1,14 @@
-<?xml version='1.0' encoding='utf-8'?><gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.8.0">
-        <param name="APP_ID" value="104974216518660" />
-        <param name="APP_NAME" value="Szepseg" />
-    </gap:plugin>
+<?xml version='1.0' encoding='utf-8'?>
 <widget id="com.zsualk.workshop" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Workshop</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
+<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.8.0">
+        <param name="APP_ID" value="104974216518660" />
+        <param name="APP_NAME" value="Szepseg" />
+    </gap:plugin>
+
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
