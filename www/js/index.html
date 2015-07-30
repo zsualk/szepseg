@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Facebook like page</title>
+<title>Serenity, HTML Responsive Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Le styles -->
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
 <link href="css/icons.css" rel="stylesheet" media="screen">
 <link href="css/custom.css" rel="stylesheet">
 <link href="css/skindefault.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>	
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -21,21 +20,31 @@
 	  <link rel="stylesheet" type="text/css" href="css/ie.css" />
     <![endif]-->
 <!-- Jquery - The rest of the scripts at the bottom-->
-<script src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('deviceProperties');
+
+        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+                            'Device Cordova: '  + device.cordova  + '<br />' + 
+                            'Device Platform: ' + device.platform + '<br />' + 
+                            'Device UUID: '     + device.uuid     + '<br />' + 
+                            'Device Version: '  + device.version  + '<br />';
+    }
+</script>
+
+
+
 </head>
 <body>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
+<p id="deviceProperties" >Loading ...</p>
 <!-- Header
 ================================================== -->
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -51,47 +60,19 @@
 ================================================== -->
 <div class="introtitle">
 	<div class="container">
-	  <h1>Kérelek kövessd szponzorunkat</h1>
-	  
+	  <h1>Szavazz a legszebb lányra</h1>
 	</div>
 </div>
 <!-- END Intro -->
 <div class="container">
-	<div class="row-fluid spacetop">
-		<!-- begin description area -->
-		<div class="span6">
-				
-
-<div id="button">
-<a href="index.html">
-<button type="button"> Vissza</button>
-</a>
-</div>
-<div>
-<h3>A szavazáshoz kedveld szponzorunkat.</h3>
-</div>
-<h1>Szponozor 1</h1>
-
-<div class="fb-like" data-href="https://www.facebook.com/krisztian.klausz" data-layout="button" data-action="like" data-show-faces="true" data-share="true">itt kene lenni a like-nak</div>
-
-<h1>Szponozor 2</h1>
-<p>
-<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="200px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true">itt kene lenni a like-nak</div>
-</p>
-<div id="button">
-<a href="email_page.html">
-<button type="button"> Tovább</button>
-</a>
-</div>
-			</p>
-			<hr>
-			<hr>
-		</div>
-		<!-- end description area -->
 	
-        <div class="span6">
-			<div id="id01" class="flexslider">
-			
+	<!-- MASONRY ITEMS STAR
+	================================================== -->
+	<div id="content">	
+			      
+	<!-- box 1 -->
+	
+		<div id="id01">
         	<script>
 			var xmlhttp = new XMLHttpRequest();
 			var url = "http://api.subtitlesforyoutube.com/v2/hu-HU/project/list-girls";
@@ -109,16 +90,15 @@
                 var out = "";
                 var i;
                 for(i = 0; i<arr.length; i++) {
-                    out += '<ul class="slides">'+ '<li>' + '<img src="' + arr[i].src + '" alt=""/></li>' +  '<ul>' ;
+                    out += '<div class="boxportfolio4 cat2 cat3">'+ '<div class="boxcontainer">' + '<a href="singleproject.html">' + '<img src="' + arr[i].src + '" alt=""/></a>' +  '<div class="wrapcaption">' +  '</a>' + '<a href="singleproject.html"></a>'+ '<a data-gal="prettyPhoto[gallery1]" href="' + arr[i].src + '" title="' + arr[i].name + '">'+'</a>' + '</div>'+'<h1><a href="singleproject.html">"' + arr[i].name + '"</a></h1>'+'<p>"' + arr[i].bust + '"</p></div></div>';
                 }
                 document.getElementById("id01").innerHTML = out;
             }
             </script>
-            </div>
-            
-			</div>
-		<!-- end slider area -->
+			
 	</div>
+</div>
+<!-- MASONRY ITEMS END -->
 </div>
 <!-- Footer
 ================================================== -->
@@ -131,23 +111,16 @@
 		</div>
 	</div>
 	<hr>
+	
 </div>
 </div>
 <!-- Le javascript
-    ================================================== -->
+================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/bootstrap.js"></script>
 <script src="js/twitter-bootstrap-hover-dropdown.js"></script>
 <script src="js/common.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<!-- CALL flexslder -->
-<script>
-// Can also be used with $(document).ready()
-$(window).load(function() {
-$('.flexslider').flexslider({
-animation: "slide"
-});
-});
-</script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
 </body>
 </html>
